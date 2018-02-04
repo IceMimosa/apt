@@ -11,5 +11,15 @@
 
     <artifactId>apt-demo</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.patamon.apt</groupId>
+            <artifactId>apt-annotation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.patamon.apt</groupId>
+            <artifactId>apt-annotation-lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
