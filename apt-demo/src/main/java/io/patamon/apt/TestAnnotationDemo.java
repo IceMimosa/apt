@@ -5,7 +5,7 @@ import io.patamon.apt.annotation.TestAnnotation;
 /**
  * Desc: {@link TestAnnotation} 的demo
  * <p>
- * Mail: chk@terminus.io
+ * Mail: chk19940609@gmail.com
  * Created by IceMimosa
  * Date: 2018/1/30
  */

@@ -4,9 +4,9 @@ import io.patamon.apt.lombok.annotation.Getter;
 import io.patamon.apt.lombok.annotation.Setter;
 
 /**
- * Desc:
+ * Desc: 测试注解
  * <p>
- * Mail: chk@terminus.io
+ * Mail: chk19940609@gmail.com
  * Created by IceMimosa
  * Date: 2018/2/4
  */

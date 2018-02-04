@@ -22,7 +22,7 @@ import java.util.Set;
 /**
  * Desc: lombok的注解处理类
  * <p>
- * Mail: chk@terminus.io
+ * Mail: chk19940609@gmail.com
  * Created by IceMimosa
  * Date: 2018/2/4
  */

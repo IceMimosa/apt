@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * Desc: 生成setter方法
  * <p>
- * Mail: chk@terminus.io
+ * Mail: chk19940609@gmail.com
  * Created by IceMimosa
  * Date: 2018/2/4
  */

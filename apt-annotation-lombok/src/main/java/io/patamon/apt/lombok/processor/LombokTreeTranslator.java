@@ -23,7 +23,7 @@ import static com.sun.tools.javac.tree.JCTree.JCVariableDecl;
 /**
  * Desc: 遍历抽象语法树
  * <p>
- * Mail: chk@terminus.io
+ * Mail: chk19940609@gmail.com
  * Created by IceMimosa
  * Date: 2018/2/4
  */
