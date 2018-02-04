@@ -1,1 +1,2 @@
 io.patamon.apt.processor.TestProcessor
+io.patamon.apt.processor.TestJavaSourceProcessor

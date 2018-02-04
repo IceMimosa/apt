@@ -2,12 +2,10 @@ package io.patamon.apt.lombok.processor;
 
 import com.google.auto.service.AutoService;
 import com.sun.source.util.Trees;
-import com.sun.tools.javac.code.Flags;
 import com.sun.tools.javac.processing.JavacProcessingEnvironment;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.List;
 import com.sun.tools.javac.util.Names;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -32,8 +30,19 @@ import java.util.Set;
 @SupportedAnnotationTypes({"io.patamon.apt.lombok.annotation.*"})
 public class LombokProcessor extends AbstractProcessor {
 
+    /**
+     * 语法树
+     */
     private Trees trees;
+
+    /**
+     * 树节点创建工具类
+     */
     private TreeMaker treeMaker;
+
+    /**
+     * 命名工具类
+     */
     private Names names;
 
     private Messager messager;
@@ -53,36 +62,14 @@ public class LombokProcessor extends AbstractProcessor {
         if (!roundEnv.processingOver()) {
             for (Element element : roundEnv.getRootElements()) {
                 if (element.getKind().isClass()) {
+                    // 获取语法树
                     JCTree tree = (JCTree) trees.getTree(element);
-                     tree.accept(new LombokTreeTranslator(treeMaker, names, messager));
-
-//                    JCTree.JCClassDecl classDecl = ((JCTree.JCClassDecl) tree);
-//                    for (JCTree var : ((JCTree.JCClassDecl) tree).defs) {
-//                        if (var instanceof JCTree.JCVariableDecl) {
-//                            JCTree.JCMethodDecl methodGetter = this.createGetterMethod((JCTree.JCVariableDecl) var);
-//                            classDecl.defs = classDecl.defs.append(methodGetter);
-//
-//                        }
-//                    }
+                    // 使用TreeTranslator遍历
+                    tree.accept(new LombokTreeTranslator(treeMaker, names));
                 }
             }
         }
         return false;
-    }
-
-    private JCTree.JCMethodDecl createGetterMethod(JCTree.JCVariableDecl jcVariableDecl) {
-        JCTree.JCMethodDecl jcMethodDecl = treeMaker.MethodDef(
-                treeMaker.Modifiers(Flags.PUBLIC),
-                names.fromString("getName"),
-                (JCTree.JCExpression) jcVariableDecl.getType(),
-                List.nil(),
-                List.nil(),
-                List.nil(),
-                treeMaker.Block(0L, List.of(treeMaker.Return(treeMaker.Select(treeMaker.Ident(names.fromString("this")), names.fromString("name"))))),
-                null
-        );
-        // jcMethodDecl.sym = new Symbol.MethodSymbol(Flags.PUBLIC, names.fromString("getName"), jcVariableDecl.getType().type, jcClassDecl.sym);
-        return jcMethodDecl;
     }
 
     @Override
