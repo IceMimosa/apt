@@ -6,3 +6,7 @@
 * 动态插入Getter/Setter方法，像Lombok做的那样
 
 可以参考：http://patamon.me/tags/lombok/
+
+## 实践
+
+* [增强EventBus](https://github.com/IceMimosa/EventBus)
